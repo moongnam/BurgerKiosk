@@ -13,25 +13,41 @@ namespace BurgerKiosk
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            // 1. 초기 체크 해제
+            ResetAllControls();
+        }
+
+        // 공통 로직: 모든 컨트롤을 초기화 상태로 만듦
+        private void ResetAllControls()
+        {
             rdoBulburger.Checked = false;
             rdShrimp.Checked = false;
             rdChicken.Checked = false;
 
-            // 2. 탭이 버거 그룹박스로 먼저 오게 설정
-            // GpMenu가 첫 번째 탭 순서(TabIndex=0)여야 합니다.
+            chkPotato.Checked = false;
+            chkCheese.Checked = false;
+            chkCorn.Checked = false;
+            chkCola.Checked = false;
+
+            // ★핵심★ 체크가 안 되어 있어도 탭 키가 멈추게 설정
+            // 불고기버거에 탭 정거장을 강제로 세웁니다.
             rdoBulburger.TabStop = true;
-            GpMenu.Focus();
+
+            listOrder.Items.Clear();
+            lblTotal.Text = "총 금액: 0원";
+
+            // 초기화 후 포커스를 타이틀로 보내서 자동 체크 방지
+            lblTitle.Focus();
         }
 
-        // 주문하기 버튼
-        private void btOrder_Click(object sender, EventArgs e)
+        private void UpdateOrder()
         {
+            // [방어막] 아무것도 체크 안 됐을 땐 0원 유지
             if (!rdoBulburger.Checked && !rdShrimp.Checked && !rdChicken.Checked)
             {
                 listOrder.Items.Clear();
-                listOrder.Items.Add("메뉴를 선택해주세요.");
-                lblTotal.Text = "주문을 다시 확인해주세요.";
+                lblTotal.Text = "총 금액: 0원";
+                // 체크가 다 풀린 상태에서도 탭은 올 수 있게 TabStop 유지
+                rdoBulburger.TabStop = true;
                 return;
             }
 
@@ -50,35 +66,33 @@ namespace BurgerKiosk
             lblTotal.Text = "총 금액: " + totalCost.ToString("N0") + "원";
         }
 
-        // 초기화 버튼
-        private void button2_Click(object sender, EventArgs e)
+        private void btOrder_Click(object sender, EventArgs e)
         {
-            rdoBulburger.Checked = false;
-            rdShrimp.Checked = false;
-            rdChicken.Checked = false;
-            chkPotato.Checked = false;
-            chkCheese.Checked = false;
-            chkCorn.Checked = false;
-            chkCola.Checked = false;
-
-            listOrder.Items.Clear();
-            lblTotal.Text = "총 금액: 0원";
-            rdoBulburger.TabStop = true;
-            rdoBulburger.Focus();
+            if (!rdoBulburger.Checked && !rdShrimp.Checked && !rdChicken.Checked)
+            {
+                listOrder.Items.Clear();
+                listOrder.Items.Add("메뉴를 선택해주세요.");
+                lblTotal.Text = "주문을 다시 확인해주세요.";
+                return;
+            }
+            MessageBox.Show("주문이 완료되었습니다!");
         }
 
-        // 키보드 조작 보조: 방향키로 라디오버튼 사이 이동할 때 체크되도록 함
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ResetAllControls();
+        }
 
-        // 비어있던 이벤트 핸들러들 (삭제하면 디자이너 에러나니 그대로 둡니다)
+        // --- 이벤트 핸들러 ---
+        private void rdoBulburger_CheckedChanged(object sender, EventArgs e) { UpdateOrder(); }
+        private void rdShrimp_CheckedChanged(object sender, EventArgs e) { UpdateOrder(); }
+        private void rdChicken_CheckedChanged(object sender, EventArgs e) { UpdateOrder(); }
+        private void chkPotato_CheckedChanged(object sender, EventArgs e) { UpdateOrder(); }
+        private void chkCheese_CheckedChanged(object sender, EventArgs e) { UpdateOrder(); }
+        private void chkCorn_CheckedChanged(object sender, EventArgs e) { UpdateOrder(); }
+        private void checkBox2_CheckedChanged(object sender, EventArgs e) { UpdateOrder(); }
+
         private void label2_Click(object sender, EventArgs e) { }
-        private void checkBox2_CheckedChanged(object sender, EventArgs e) { }
         private void groupBox1_Enter(object sender, EventArgs e) { }
-        private void rdoBulburger_CheckedChanged(object sender, EventArgs e) { }
-        private void rdShrimp_CheckedChanged(object sender, EventArgs e) { }
-        private void rdChicken_CheckedChanged(object sender, EventArgs e) { }
-        private void chkPotato_CheckedChanged(object sender, EventArgs e) { }
-        private void chkCheese_CheckedChanged(object sender, EventArgs e) { }
-        private void chkCorn_CheckedChanged(object sender, EventArgs e) { }
     }
 }
