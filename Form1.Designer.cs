@@ -61,9 +61,10 @@
             lblTitle.ForeColor = Color.IndianRed;
             lblTitle.Location = new Point(24, 32);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(291, 47);
+            lblTitle.Size = new Size(336, 47);
             lblTitle.TabIndex = 0;
-            lblTitle.Text = "버거 주문 키오스크";
+            lblTitle.Text = "버거 주문 키오스크🍔";
+            lblTitle.Click += lblTitle_Click;
             // 
             // rdoBulburger
             // 
@@ -77,8 +78,8 @@
             rdoBulburger.Text = "불고기버거";
             rdoBulburger.UseVisualStyleBackColor = true;
             rdoBulburger.CheckedChanged += rdoBulburger_CheckedChanged;
-            rdoBulburger.PreviewKeyDown += Control_PreviewKeyDown;
             rdoBulburger.KeyDown += Control_KeyDown;
+            rdoBulburger.PreviewKeyDown += Control_PreviewKeyDown;
             // 
             // pBBul
             // 
@@ -112,8 +113,8 @@
             rdShrimp.Text = "새우버거";
             rdShrimp.UseVisualStyleBackColor = true;
             rdShrimp.CheckedChanged += rdShrimp_CheckedChanged;
-            rdShrimp.PreviewKeyDown += Control_PreviewKeyDown;
             rdShrimp.KeyDown += Control_KeyDown;
+            rdShrimp.PreviewKeyDown += Control_PreviewKeyDown;
             // 
             // pBchicken
             // 
@@ -137,8 +138,8 @@
             rdChicken.Text = "치킨버거";
             rdChicken.UseVisualStyleBackColor = true;
             rdChicken.CheckedChanged += rdChicken_CheckedChanged;
-            rdChicken.PreviewKeyDown += Control_PreviewKeyDown;
             rdChicken.KeyDown += Control_KeyDown;
+            rdChicken.PreviewKeyDown += Control_PreviewKeyDown;
             // 
             // btOrder
             // 
@@ -194,8 +195,8 @@
             chkPotato.Text = "감자튀김";
             chkPotato.UseVisualStyleBackColor = true;
             chkPotato.CheckedChanged += chkPotato_CheckedChanged;
-            chkPotato.PreviewKeyDown += Control_PreviewKeyDown;
             chkPotato.KeyDown += Control_KeyDown;
+            chkPotato.PreviewKeyDown += Control_PreviewKeyDown;
             // 
             // chkCola
             // 
@@ -208,8 +209,8 @@
             chkCola.Text = "콜라";
             chkCola.UseVisualStyleBackColor = true;
             chkCola.CheckedChanged += checkBox2_CheckedChanged;
-            chkCola.PreviewKeyDown += Control_PreviewKeyDown;
             chkCola.KeyDown += Control_KeyDown;
+            chkCola.PreviewKeyDown += Control_PreviewKeyDown;
             // 
             // chkCheese
             // 
@@ -222,8 +223,8 @@
             chkCheese.Text = "치즈스틱";
             chkCheese.UseVisualStyleBackColor = true;
             chkCheese.CheckedChanged += chkCheese_CheckedChanged;
-            chkCheese.PreviewKeyDown += Control_PreviewKeyDown;
             chkCheese.KeyDown += Control_KeyDown;
+            chkCheese.PreviewKeyDown += Control_PreviewKeyDown;
             // 
             // chkCorn
             // 
@@ -236,8 +237,8 @@
             chkCorn.Text = "코울슬로";
             chkCorn.UseVisualStyleBackColor = true;
             chkCorn.CheckedChanged += chkCorn_CheckedChanged;
-            chkCorn.PreviewKeyDown += Control_PreviewKeyDown;
             chkCorn.KeyDown += Control_KeyDown;
+            chkCorn.PreviewKeyDown += Control_PreviewKeyDown;
             // 
             // GpMenu
             // 
@@ -252,9 +253,7 @@
             GpMenu.Name = "GpMenu";
             GpMenu.Size = new Size(277, 305);
             GpMenu.TabIndex = 0;
-            GpMenu.TabStop = true;
             GpMenu.Text = "메뉴 선택";
-                
             GpMenu.Enter += groupBox1_Enter;
             // 
             // GpPlus
@@ -268,7 +267,6 @@
             GpPlus.Name = "GpPlus";
             GpPlus.Size = new Size(186, 258);
             GpPlus.TabIndex = 1;
-            GpPlus.TabStop = true;
             GpPlus.Text = "추가 옵션";
             GpPlus.Enter += groupBox1_Enter;
             // 
@@ -281,7 +279,6 @@
             Gplist.Name = "Gplist";
             Gplist.Size = new Size(276, 228);
             Gplist.TabIndex = 2;
-            Gplist.TabStop = true;
             Gplist.Text = "주문 내역";
             Gplist.Enter += groupBox1_Enter;
             // 
