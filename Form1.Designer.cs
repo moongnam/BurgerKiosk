@@ -72,11 +72,13 @@
             rdoBulburger.Location = new Point(16, 61);
             rdoBulburger.Name = "rdoBulburger";
             rdoBulburger.Size = new Size(150, 35);
-            rdoBulburger.TabIndex = 1;
+            rdoBulburger.TabIndex = 0;
             rdoBulburger.TabStop = true;
             rdoBulburger.Text = "불고기버거";
             rdoBulburger.UseVisualStyleBackColor = true;
             rdoBulburger.CheckedChanged += rdoBulburger_CheckedChanged;
+            rdoBulburger.PreviewKeyDown += Control_PreviewKeyDown;
+            rdoBulburger.KeyDown += Control_KeyDown;
             // 
             // pBBul
             // 
@@ -105,11 +107,13 @@
             rdShrimp.Location = new Point(16, 148);
             rdShrimp.Name = "rdShrimp";
             rdShrimp.Size = new Size(127, 35);
-            rdShrimp.TabIndex = 4;
+            rdShrimp.TabIndex = 1;
             rdShrimp.TabStop = true;
             rdShrimp.Text = "새우버거";
             rdShrimp.UseVisualStyleBackColor = true;
             rdShrimp.CheckedChanged += rdShrimp_CheckedChanged;
+            rdShrimp.PreviewKeyDown += Control_PreviewKeyDown;
+            rdShrimp.KeyDown += Control_KeyDown;
             // 
             // pBchicken
             // 
@@ -128,11 +132,13 @@
             rdChicken.Location = new Point(16, 231);
             rdChicken.Name = "rdChicken";
             rdChicken.Size = new Size(127, 35);
-            rdChicken.TabIndex = 6;
+            rdChicken.TabIndex = 2;
             rdChicken.TabStop = true;
             rdChicken.Text = "치킨버거";
             rdChicken.UseVisualStyleBackColor = true;
             rdChicken.CheckedChanged += rdChicken_CheckedChanged;
+            rdChicken.PreviewKeyDown += Control_PreviewKeyDown;
+            rdChicken.KeyDown += Control_KeyDown;
             // 
             // btOrder
             // 
@@ -140,7 +146,7 @@
             btOrder.Location = new Point(590, 360);
             btOrder.Name = "btOrder";
             btOrder.Size = new Size(122, 57);
-            btOrder.TabIndex = 0;
+            btOrder.TabIndex = 3;
             btOrder.Text = "주문하기";
             btOrder.UseVisualStyleBackColor = false;
             btOrder.Click += btOrder_Click;
@@ -152,7 +158,7 @@
             btReset.Location = new Point(718, 360);
             btReset.Name = "btReset";
             btReset.Size = new Size(120, 57);
-            btReset.TabIndex = 8;
+            btReset.TabIndex = 4;
             btReset.Text = "초기화";
             btReset.UseVisualStyleBackColor = false;
             btReset.Click += button2_Click;
@@ -184,10 +190,12 @@
             chkPotato.Location = new Point(21, 42);
             chkPotato.Name = "chkPotato";
             chkPotato.Size = new Size(128, 35);
-            chkPotato.TabIndex = 11;
+            chkPotato.TabIndex = 0;
             chkPotato.Text = "감자튀김";
             chkPotato.UseVisualStyleBackColor = true;
             chkPotato.CheckedChanged += chkPotato_CheckedChanged;
+            chkPotato.PreviewKeyDown += Control_PreviewKeyDown;
+            chkPotato.KeyDown += Control_KeyDown;
             // 
             // chkCola
             // 
@@ -196,10 +204,12 @@
             chkCola.Location = new Point(21, 93);
             chkCola.Name = "chkCola";
             chkCola.Size = new Size(82, 35);
-            chkCola.TabIndex = 12;
+            chkCola.TabIndex = 1;
             chkCola.Text = "콜라";
             chkCola.UseVisualStyleBackColor = true;
             chkCola.CheckedChanged += checkBox2_CheckedChanged;
+            chkCola.PreviewKeyDown += Control_PreviewKeyDown;
+            chkCola.KeyDown += Control_KeyDown;
             // 
             // chkCheese
             // 
@@ -208,10 +218,12 @@
             chkCheese.Location = new Point(21, 138);
             chkCheese.Name = "chkCheese";
             chkCheese.Size = new Size(128, 35);
-            chkCheese.TabIndex = 13;
+            chkCheese.TabIndex = 2;
             chkCheese.Text = "치즈스틱";
             chkCheese.UseVisualStyleBackColor = true;
             chkCheese.CheckedChanged += chkCheese_CheckedChanged;
+            chkCheese.PreviewKeyDown += Control_PreviewKeyDown;
+            chkCheese.KeyDown += Control_KeyDown;
             // 
             // chkCorn
             // 
@@ -220,10 +232,12 @@
             chkCorn.Location = new Point(21, 185);
             chkCorn.Name = "chkCorn";
             chkCorn.Size = new Size(128, 35);
-            chkCorn.TabIndex = 14;
+            chkCorn.TabIndex = 3;
             chkCorn.Text = "코울슬로";
             chkCorn.UseVisualStyleBackColor = true;
             chkCorn.CheckedChanged += chkCorn_CheckedChanged;
+            chkCorn.PreviewKeyDown += Control_PreviewKeyDown;
+            chkCorn.KeyDown += Control_KeyDown;
             // 
             // GpMenu
             // 
@@ -237,9 +251,10 @@
             GpMenu.Location = new Point(24, 112);
             GpMenu.Name = "GpMenu";
             GpMenu.Size = new Size(277, 305);
-            GpMenu.TabIndex = 15;
-            GpMenu.TabStop = false;
+            GpMenu.TabIndex = 0;
+            GpMenu.TabStop = true;
             GpMenu.Text = "메뉴 선택";
+                
             GpMenu.Enter += groupBox1_Enter;
             // 
             // GpPlus
@@ -252,9 +267,10 @@
             GpPlus.Location = new Point(342, 112);
             GpPlus.Name = "GpPlus";
             GpPlus.Size = new Size(186, 258);
-            GpPlus.TabIndex = 16;
-            GpPlus.TabStop = false;
+            GpPlus.TabIndex = 1;
+            GpPlus.TabStop = true;
             GpPlus.Text = "추가 옵션";
+            GpPlus.Enter += groupBox1_Enter;
             // 
             // Gplist
             // 
@@ -264,9 +280,10 @@
             Gplist.Location = new Point(573, 112);
             Gplist.Name = "Gplist";
             Gplist.Size = new Size(276, 228);
-            Gplist.TabIndex = 17;
-            Gplist.TabStop = false;
+            Gplist.TabIndex = 2;
+            Gplist.TabStop = true;
             Gplist.Text = "주문 내역";
+            Gplist.Enter += groupBox1_Enter;
             // 
             // Form1
             // 
@@ -281,6 +298,7 @@
             Controls.Add(lblTitle);
             Name = "Form1";
             Text = "Burger Kiosk v1.0";
+            Shown += Form1_Shown;
             ((System.ComponentModel.ISupportInitialize)pBBul).EndInit();
             ((System.ComponentModel.ISupportInitialize)pBshrimp).EndInit();
             ((System.ComponentModel.ISupportInitialize)pBchicken).EndInit();
@@ -292,6 +310,16 @@
             Gplist.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void Control_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void Control_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            
         }
 
         #endregion
