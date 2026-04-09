@@ -7,73 +7,42 @@ namespace BurgerKiosk
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
+        // 초기화 버튼 (기존 button2)
         private void button2_Click(object sender, EventArgs e)
         {
+            // 라디오 버튼 초기화
             rdoBulburger.Checked = false;
             rdShrimp.Checked = false;
             rdChicken.Checked = false;
 
-            // 2. 체크박스 초기화 (추가 옵션 모두 해제)
+            // 체크박스 초기화
             chkPotato.Checked = false;
             chkCheese.Checked = false;
             chkCorn.Checked = false;
             chkCola.Checked = false;
 
-            listOrder.Items.Clear(); // 주문 내역 초기화
-            lblTotal.Text = "총 금액: 0원"; // 총 금액 초기화
+            // 출력 항목 초기화
+            listOrder.Items.Clear();
+            lblTotal.Text = "총 금액: 0원";
         }
 
-        private void rdoBulburger_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rdShrimp_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rdChicken_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkPotato_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkCheese_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkCorn_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        // 주문하기 버튼
         private void btOrder_Click(object sender, EventArgs e)
         {
-            int totalCost = 0;
-            
+            // 1. 유효성 검사 (아무것도 선택하지 않은 경우)
+            if (!rdoBulburger.Checked && !rdShrimp.Checked && !rdChicken.Checked)
+            {
+                listOrder.Items.Clear();
+                listOrder.Items.Add("메뉴를 선택해주세요.");
+                lblTotal.Text = "주문을 다시 확인해주세요.";
+                return; // 아래 계산 로직을 실행하지 않고 여기서 중단
+            }
 
-            // 2. 메뉴 선택 확인 (이미 작성하신 로직을 변수 기준으로 수정)
+            // 2. 계산 시작
+            int totalCost = 0;
+            listOrder.Items.Clear(); // 리스트박스를 비우고 새로 담기 시작
+
+            // 메인 메뉴 확인 (라디오 버튼)
             if (rdoBulburger.Checked)
             {
                 totalCost += 5000;
@@ -90,7 +59,7 @@ namespace BurgerKiosk
                 listOrder.Items.Add("치킨버거 3,000원");
             }
 
-            // 3. 추가 옵션 확인 (CheckBox들 - if문 독립적으로 사용)
+            // 3. 추가 옵션 확인 (체크박스 - 독립적 if문)
             if (chkPotato.Checked)
             {
                 totalCost += 3500;
@@ -114,12 +83,21 @@ namespace BurgerKiosk
                 totalCost += 500;
                 listOrder.Items.Add("코울슬로 500원");
             }
-            
 
-            // 4. 최종 결과를 Label 컨트롤에 출력 (이때 .Text 속성을 사용합니다)
-            // 예: lblTotalCost라는 이름의 Label이 있다면
-            lblTotal.Text = "총 금액: " + totalCost.ToString() + "원";
-            
+            // 4. 최종 결과 출력 (쉼표 포맷 "N0" 추가)
+            lblTotal.Text = "총 금액: " + totalCost.ToString("N0") + "원";
         }
+
+        // 아래 사용하지 않는 이벤트 핸들러들은 그대로 두셔도 되고 삭제하셔도 됩니다.
+        private void label2_Click(object sender, EventArgs e) { }
+        private void checkBox2_CheckedChanged(object sender, EventArgs e) { }
+        private void groupBox1_Enter(object sender, EventArgs e) { }
+        private void rdoBulburger_CheckedChanged(object sender, EventArgs e) { }
+        private void rdShrimp_CheckedChanged(object sender, EventArgs e) { }
+        private void rdChicken_CheckedChanged(object sender, EventArgs e) { }
+        private void chkPotato_CheckedChanged(object sender, EventArgs e) { }
+        private void chkCheese_CheckedChanged(object sender, EventArgs e) { }
+        private void chkCorn_CheckedChanged(object sender, EventArgs e) { }
     }
 }
+
